@@ -1,0 +1,670 @@
+/* ============================================================
+   Inkwell — design tokens
+   A literary-journal aesthetic: warm near-black ground, paper
+   surfaces for cards, oxblood + goldenrod ink accents.
+   ============================================================ */
+:root {
+  --ink-900: #18161a;
+  --ink-800: #221f25;
+  --ink-700: #2f2b33;
+  --ink-600: #454049;
+  --paper: #f2ede1;
+  --paper-dim: #e6ddc8;
+  --oxblood: #9c3b3b;
+  --oxblood-dim: #7c2f2f;
+  --gold: #c99a3a;
+  --ash: #a7a196;
+  --ash-dim: #6f6a61;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ink-900);
+  background-image: radial-gradient(circle at 15% 0%, rgba(156, 59, 59, 0.09), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(201, 154, 58, 0.06), transparent 40%);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.page-loading {
+  text-align: center;
+  color: var(--ash);
+  padding: 64px 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.error-text {
+  color: #e08a8a;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+
+.dot {
+  color: var(--ash-dim);
+  margin: 0 6px;
+}
+
+.byline {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--paper);
+  border-bottom: 1px solid transparent;
+}
+.byline:hover {
+  border-color: var(--gold);
+}
+
+time {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ash);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--ink-900);
+  background: var(--gold);
+  padding: 3px 9px;
+  border-radius: 2px;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+/* ============================================================
+   Masthead / nav — the signature nameplate
+   ============================================================ */
+.masthead {
+  border-bottom: 1px solid var(--ink-700);
+  background: var(--ink-900);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.masthead-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--paper);
+}
+
+.wordmark-rule {
+  width: 96px;
+  height: 8px;
+  margin-top: 2px;
+  stroke: var(--oxblood);
+  stroke-width: 2;
+  fill: none;
+}
+
+.masthead-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--ash);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-link:hover {
+  color: var(--paper);
+}
+
+.nav-cta {
+  color: var(--gold);
+}
+
+/* ============================================================
+   Feed
+   ============================================================ */
+.feed-intro {
+  margin-bottom: 40px;
+}
+
+.feed-heading {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--paper);
+}
+
+.feed-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--ink-700);
+}
+.post-card:first-child {
+  padding-top: 0;
+}
+
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-card-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--paper);
+  line-height: 1.25;
+}
+.post-card-title-link:hover .post-card-title {
+  color: var(--gold);
+}
+
+.post-card-subtitle {
+  font-style: italic;
+  color: var(--ash);
+  margin: 0 0 10px;
+}
+
+.post-card-excerpt {
+  color: #cfc9bd;
+  margin: 0 0 14px;
+}
+
+.post-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-card-stats {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ash-dim);
+}
+
+.empty-state {
+  color: var(--ash);
+  font-style: italic;
+  padding: 32px 0;
+}
+
+/* ============================================================
+   Auth pages
+   ============================================================ */
+.auth-page {
+  max-width: 420px;
+  padding-top: 72px;
+}
+
+.auth-card {
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+  border-radius: 3px;
+  padding: 36px;
+}
+
+.auth-heading {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+
+.auth-switch {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--ash);
+}
+.auth-switch a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+/* ============================================================
+   Form controls
+   ============================================================ */
+input,
+textarea {
+  background: var(--ink-900);
+  border: 1px solid var(--ink-600);
+  border-radius: 2px;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 10px 12px;
+  width: 100%;
+}
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 11px 22px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--oxblood);
+  color: var(--paper);
+}
+.btn-primary:hover {
+  background: var(--oxblood-dim);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--ink-600);
+  color: var(--ash);
+}
+.btn-ghost:hover {
+  color: var(--paper);
+  border-color: var(--ash);
+}
+
+.btn-danger:hover {
+  color: #e08a8a;
+  border-color: #e08a8a;
+}
+
+.btn-small {
+  padding: 7px 14px;
+  font-size: 12px;
+}
+
+/* ============================================================
+   Editor
+   ============================================================ */
+.editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.editor-title-input {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  padding: 4px 0;
+}
+.editor-title-input:focus {
+  outline: none;
+}
+
+.editor-subtitle-input {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 18px;
+  border: none;
+  background: transparent;
+  padding: 4px 0;
+  color: var(--ash);
+}
+.editor-subtitle-input:focus {
+  outline: none;
+}
+
+.editor-tags-input {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.editor-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.editor-textarea {
+  min-height: 420px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.editor-preview {
+  border: 1px solid var(--ink-700);
+  border-radius: 2px;
+  padding: 16px 20px;
+  overflow-y: auto;
+  max-height: 460px;
+  background: var(--ink-800);
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   Article page
+   ============================================================ */
+.article-page {
+  max-width: 680px;
+}
+
+.article-title {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.article-subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ash);
+  margin: 0 0 20px;
+}
+
+.article-byline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--ink-700);
+}
+
+.article-owner-actions {
+  display: flex;
+  gap: 10px;
+  margin: -8px 0 24px;
+}
+
+.article-body {
+  font-size: 19px;
+  line-height: 1.75;
+  color: #ece7db;
+}
+.article-body p {
+  margin: 0 0 22px;
+}
+.article-body p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 600;
+  float: left;
+  line-height: 0.8;
+  padding: 8px 8px 0 0;
+  color: var(--oxblood);
+}
+.article-body h1,
+.article-body h2,
+.article-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--paper);
+  margin: 32px 0 14px;
+}
+.article-body a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+.article-body blockquote {
+  border-left: 3px solid var(--oxblood);
+  margin: 0 0 22px;
+  padding: 2px 0 2px 20px;
+  color: var(--ash);
+  font-style: italic;
+}
+.article-body code {
+  font-family: var(--font-mono);
+  background: var(--ink-800);
+  padding: 2px 5px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+.article-body pre {
+  background: var(--ink-800);
+  padding: 16px;
+  border-radius: 2px;
+  overflow-x: auto;
+}
+.article-body img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
+.article-tags {
+  margin: 32px 0;
+}
+
+.article-actions {
+  padding: 24px 0;
+  border-top: 1px solid var(--ink-700);
+  border-bottom: 1px solid var(--ink-700);
+  margin-bottom: 40px;
+}
+
+.like-button {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid var(--ink-600);
+  color: var(--ash);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.like-button-active {
+  color: var(--oxblood);
+  border-color: var(--oxblood);
+  background: rgba(156, 59, 59, 0.1);
+}
+
+/* ============================================================
+   Comments
+   ============================================================ */
+.comments-heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.comment-form textarea {
+  min-height: 80px;
+}
+.comment-form button {
+  align-self: flex-end;
+}
+
+.comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment-item {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ink-700);
+}
+.comment-meta {
+  margin-bottom: 6px;
+}
+.comment-item p {
+  margin: 0;
+  color: #cfc9bd;
+}
+
+/* ============================================================
+   Profile
+   ============================================================ */
+.profile-header {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--ink-700);
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.profile-bio {
+  color: #cfc9bd;
+  margin: 0 0 10px;
+}
+
+.profile-meta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ash);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .masthead-inner {
+    padding: 16px;
+  }
+  .masthead-nav {
+    gap: 14px;
+  }
+  .page {
+    padding: 32px 16px 72px;
+  }
+  .feed-heading {
+    font-size: 30px;
+  }
+  .article-title {
+    font-size: 32px;
+  }
+  .editor-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
