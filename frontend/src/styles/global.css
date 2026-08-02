@@ -1,8 +1,3 @@
-/* ============================================================
-   Inkwell — design tokens
-   A literary-journal aesthetic: warm near-black ground, paper
-   surfaces for cards, oxblood + goldenrod ink accents.
-   ============================================================ */
 :root {
   --ink-900: #18161a;
   --ink-800: #221f25;
