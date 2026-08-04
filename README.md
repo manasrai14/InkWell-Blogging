@@ -81,4 +81,3 @@ blog-platform/
   more.
 - Drafts: saving without publishing sets `published: 0`, but there's no
   "My Drafts" view yet — add a filter on the profile page if you want one.
-- To reset all data, stop the backend and delete `backend/inkwell.db`.
